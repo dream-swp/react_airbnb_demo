@@ -8,13 +8,12 @@ export function geHomeGoodPriceData() {
 
 export function getHomeHighScoreData() {
     return dsRequest.get({
-        url: "/home/highscore"
+        url: "/home/highscore",
     })
 }
 
-
 export function getHomeDiscountData() {
     return dsRequest.get({
-        url: "home/discount"
+        url: "home/discount",
     })
 }

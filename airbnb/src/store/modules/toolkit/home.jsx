@@ -1,34 +1,47 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
-import { geHomeGoodPriceData } from "@/services"
+import { geHomeGoodPriceData, getHomeDiscountData, getHomeHighScoreData } from "@/services"
 
-export const fetchHomeDataAction = createAsyncThunk("fetchHomeDataAction", async (payload) => {
-    return await geHomeGoodPriceData()
+export const fetchHomeDataAction = createAsyncThunk("fetchHomeDataAction", (payload, { dispatch }) => {
+    geHomeGoodPriceData().then((res) => {
+        dispatch(changeGoodPriceInfoAction(res))
+    })
+
+    getHomeHighScoreData().then((res) => {
+        dispatch(changHomeHighScoreDataAction(res))
+    })
+
+    getHomeDiscountData().then((res) => {
+        dispatch(changeHomeDiscountDataAction(res))
+    })
+    
 })
 
 const homeSlice = createSlice({
     name: "home",
     initialState: {
         goodPriceInfo: {},
+        highScoreData: {},
+        discountData: {},
     },
     reducers: {
         changeGoodPriceInfoAction(state, { payload }) {
             state.goodPriceInfo = payload
         },
-    },
-    extraReducers: (builder) => {
-        builder
-            .addCase(fetchHomeDataAction.pending, (state) => {})
-            .addCase(fetchHomeDataAction.fulfilled, (state, { payload }) => {
-                console.log(payload)
-                state.goodPriceInfo = payload
-            })
-            .addCase(fetchHomeDataAction.rejected, (state, { payload }) => {
-                console.log(action.error.message)
-            })
+
+        changHomeHighScoreDataAction(state, { payload }) {
+            state.highScoreData = payload
+        },
+        changeHomeDiscountDataAction(state, {payload} ) {
+            state.discountData = payload
+        }
     },
 })
 
-export const { changeGoodPriceInfoAction } = homeSlice.actions
+export const { 
+    changeGoodPriceInfoAction, 
+    changHomeHighScoreDataAction, 
+    changeHomeDiscountDataAction,
+} = homeSlice.actions
 
 export default homeSlice.reducer

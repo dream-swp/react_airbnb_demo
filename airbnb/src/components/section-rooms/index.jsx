@@ -3,14 +3,13 @@ import PropTypes from "prop-types"
 import RoomItem from "@/components/room-item"
 import RoomsWrapper from "./style"
 
-
 const SectionRomms = memo((props) => {
-    const { list = [] } = props
+    const { list = [], itemWidth } = props
 
     return (
         <RoomsWrapper>
             {list.slice(0, 8)?.map((item) => {
-                return <RoomItem item={item} key={item.id} />
+                return <RoomItem itemWidth={itemWidth} item={item} key={item.id} />
             })}
         </RoomsWrapper>
     )

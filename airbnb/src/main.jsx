@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client"
 import { HashRouter } from "react-router"
 import { Provider } from "react-redux"
 
-import { ThemeProvider} from "@mui/material/styles"
+import { ThemeProvider } from "@mui/material/styles"
 
 import "@/assets/css/index.less"
 import "normalize.css"
@@ -11,7 +11,6 @@ import theme from "./assets/theme"
 
 import App from "@/App"
 import store from "@/store"
-
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
@@ -36,3 +35,4 @@ createRoot(document.getElementById("root")).render(
 // npm install styled-components
 // npm install prop-types
 // npm install @mui/material @mui/styled-engine-sc
+// npm install classnames

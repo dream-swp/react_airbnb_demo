@@ -5,13 +5,6 @@ const lightTheme = {}
 const darkTheme = {}
 
 const theme = createTheme({
-
-    // palette: {
-    //     mode: 'light',
-    //     primary: {
-    //         main: '#1976d2',
-    //     },
-    // },
     color: {
         primary: "#ff385c",
         secondary: "#00848A",

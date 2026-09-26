@@ -9,7 +9,7 @@ import HomeSectionV2 from "./c-cpns/home-section-v2"
 import { isEmpty } from "@/utils"
 
 const Home = memo((props) => {
-
+    
     const dispatch = useDispatch()
 
     const { goodPriceInfo, highScoreData, discountData } = useSelector(
@@ -29,8 +29,7 @@ const Home = memo((props) => {
         <HomeWapper>
             <HomeBanner />
             <div className="content">
-                
-                { isEmpty(discountData) && <HomeSectionV2 data={discountData} />} 
+                {isEmpty(discountData) && <HomeSectionV2 data={discountData} />}
                 <HomeSectionV1 data={goodPriceInfo} />
                 <HomeSectionV1 data={highScoreData} />
             </div>

@@ -1,4 +1,5 @@
 import { memo, useEffect, useState } from "react"
+
 import { RightWrapper } from "./style"
 import IconGlobal from "@/assets/svg/icon-global"
 import IconProfileAvatar from "@/assets/svg/icon-profile-avatar"

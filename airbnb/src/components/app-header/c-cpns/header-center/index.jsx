@@ -1,6 +1,8 @@
 import { memo } from "react"
+
 import { ConterWrapper } from "./style"
 import IconSearchBar from "@/assets/svg/icon-search-bar"
+
 const HeaderCenter = memo((props) => {
     return (
         <ConterWrapper>

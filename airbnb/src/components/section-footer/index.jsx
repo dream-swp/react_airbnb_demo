@@ -1,9 +1,9 @@
 import { memo } from "react"
+import { useNavigate } from "react-router"
 import PropTypes from "prop-types"
 
 import FooterWrapper from "./style"
 import IconMoreArrow from "@/assets/svg/icon-more-arrow"
-import { useNavigate } from "react-router"
 
 const SectionFooter = memo((props) => {
 
@@ -11,7 +11,6 @@ const SectionFooter = memo((props) => {
     const text = name ? `显示更多${name}房源` : "显示全部"
 
     const navigate = useNavigate()
-
     function moreClickHandle() {
         navigate("/entire")
     }

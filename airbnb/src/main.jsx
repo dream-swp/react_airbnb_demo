@@ -25,14 +25,3 @@ createRoot(document.getElementById("root")).render(
         </Suspense>
     </StrictMode>,
 )
-
-// npm install normalize.css
-// npm install -D less
-// npm install react-router
-// npm install @reduxjs/toolkit
-// npm install react-redux
-// npm install axios
-// npm install styled-components
-// npm install prop-types
-// npm install @mui/material @mui/styled-engine-sc
-// npm install classnames

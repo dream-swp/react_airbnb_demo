@@ -16,7 +16,7 @@ const EntireRooms = memo((props) => {
 
     return (
         <RoomsWrapper>
-            <spen className="title">{totalCount}多处住宿</spen>
+            <span className="title">{totalCount}多处住宿</span>
             <div className="list">
                 {roomList.map((item) => {
                     return <RoomItem item={item} itemWidth="20%" key={item.id} />

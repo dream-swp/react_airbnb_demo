@@ -2,7 +2,7 @@ import * as actionTypes from "./constants"
 
 // rxreducer
 const initialState = {
-    currentPage: 3,
+    currentPage: 0,
     roomList: [],
     totalCount: 0,
 }

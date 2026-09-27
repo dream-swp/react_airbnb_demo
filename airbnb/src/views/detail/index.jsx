@@ -1,9 +1,16 @@
 import { memo } from "react"
+import PropTypes from "prop-types"
+
+import DetailWapper from "./style"
+
 const Detail = memo((props) => {
     return (
-        <div>
-            <h2>Detail</h2>
-        </div>
+        <DetailWapper>
+          
+        </DetailWapper>
     )
 })
+
+Detail.propTypes = {}
+
 export default Detail

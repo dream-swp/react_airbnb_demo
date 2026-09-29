@@ -1,4 +1,4 @@
-import { memo, useCallback, useRef, useState } from "react"
+import { memo, useCallback } from "react"
 import PropTypes from "prop-types"
 
 import Rating from "@mui/material/Rating"
@@ -8,10 +8,18 @@ import RoomSlick from "../room-slick"
 import RoomPicture from "../room-picture"
 
 const RoomItem = memo((props) => {
-    const { item, itemWidth = "25%" } = props
+    const { item, itemWidth = "25%", itemClick } = props
+
+    const itemClickHandle = useCallback(() => {
+        itemClick?.(item)
+    }, [])
 
     return (
-        <ItemWapper $verifyColor={item.verify_info.text_color || "#39576a"} $itemWidth={itemWidth}>
+        <ItemWapper
+            $verifyColor={item.verify_info.text_color || "#39576a"}
+            $itemWidth={itemWidth}
+            onClick={itemClickHandle}
+        >
             <div className="inner">
                 {!item.picture_urls ? (
                     <RoomPicture url={item.picture_url} />

@@ -10,23 +10,7 @@ export const ItemWapper = styled.div`
     .inner {
         width: 100%;
     }
-
-    .cover {
-        position: relative;
-        box-sizing: border-box;
-        border-radius: 10px;
-        overflow: hidden;
-        padding: 66.66% 8px 0;
-        img {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-
+    
     .desc {
         margin: 10px 0 5px;
         font-size: 12px;

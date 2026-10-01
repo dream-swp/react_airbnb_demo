@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, useState } from "react"
-import PropTypes, { func } from "prop-types"
+import PropTypes from "prop-types"
 
 import BrowserWrapper from "./style"
 
@@ -8,8 +8,9 @@ import BrowserPicture from "./c-cpns/browser-picture"
 import BrowserPreview from "./c-cpns/browser-preview"
 
 const PictureBrowser = memo((props) => {
-    const { pictureUrls = [], closeClick } = props
-    const [currentIndex, setCurrentIndex] = useState(0)
+    const { info } = props
+
+    const [currentIndex, setCurrentIndex] = useState(info.currentIndex)
     const [isNext, setIsNext] = useState(true)
     const [showList, setShowList] = useState(true)
 
@@ -21,13 +22,13 @@ const PictureBrowser = memo((props) => {
     }, [])
 
     const closeClickHandle = useCallback(() => {
-        closeClick?.()
+        info?.closeHandle?.()
     }, [])
 
     const controlHandle = useCallback(
         (isNext) => {
             let newIndex = isNext ? currentIndex + 1 : currentIndex - 1
-            const length = pictureUrls.length
+            const length = info.pictureUrls.length
 
             if (newIndex < 0) {
                 newIndex = length - 1
@@ -59,7 +60,7 @@ const PictureBrowser = memo((props) => {
 
             <BrowserPicture
                 info={{
-                    url: pictureUrls[currentIndex],
+                    url: info.pictureUrls[currentIndex],
                     currentIndex: currentIndex,
                     isNext: isNext,
                     controlHandle: controlHandle,
@@ -68,7 +69,7 @@ const PictureBrowser = memo((props) => {
 
             <BrowserPreview
                 info={{
-                    urls: pictureUrls,
+                    urls: info.pictureUrls,
                     isHiddenIndicator: showList,
                     currentIndex: currentIndex,
                     itmeHandle: (index) => itmeClickHandle(index),
@@ -80,7 +81,11 @@ const PictureBrowser = memo((props) => {
 })
 
 PictureBrowser.propTypes = {
-    pictureUrls: PropTypes.array,
+    info: {
+        pictureUrls: PropTypes.array,
+        currentIndex: PropTypes.number,
+        closeHandle: PropTypes.func,
+    },
 }
 
 export default PictureBrowser

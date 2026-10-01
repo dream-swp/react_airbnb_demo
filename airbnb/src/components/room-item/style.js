@@ -48,6 +48,11 @@ export const ItemWapper = styled.div`
             margin-right: -2px;
         }
     }
+
+    &:hover {
+        cursor: pointer;
+    }
+    
 `
 
 export default ItemWapper

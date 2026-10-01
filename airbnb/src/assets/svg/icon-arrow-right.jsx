@@ -11,7 +11,7 @@ const IconArrowRight = memo((props) => {
             aria-label="next"
             focusable="false"
             style={styleStrToObject(
-                `height: ${height}px; width: ${height}px; display: block; fill: currentcolor;`,
+                `height: ${height}px; width: ${width}px; display: block; fill: currentcolor;`,
             )}
         >
             <path

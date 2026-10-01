@@ -81,7 +81,7 @@ export const SlickWapper = styled.div`
                     &.active {
                         width: 8px;
                         height: 8px;
-                        background-color: #ff3b30;
+                        background-color: #4A4A4A;
                     }
                 }
             }

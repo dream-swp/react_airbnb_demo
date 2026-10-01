@@ -13,7 +13,6 @@ const Entire = memo((props) => {
 
     const dispatch = useDispatch()
     useEffect(() => {
-        window.scrollTo(0, 0)
         dispatch(fetchRoomListAction())
     }, [dispatch])
     return (

@@ -28,4 +28,5 @@ npm install styled-components
 npm install prop-types
 npm install @mui/material @mui/styled-engine-sc
 npm install classnames
+npm install react-transition-group
 ```

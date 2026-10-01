@@ -1,19 +1,25 @@
-import { memo } from "react"
+import { memo, useState } from "react"
 import PropTypes from "prop-types"
 
 import PicturesWrapper from "./style"
-import { useSelector } from "react-redux"
+import { shallowEqual, useSelector } from "react-redux"
+import PictureBrowser from "@/base-ui/picture-browser"
 
 const DetailPictures = memo((props) => {
-    const { detailInfo } = useSelector((state) => ({
-        detailInfo: state.detail.detailInfo,
-    }))
+    const { detailInfo } = useSelector(
+        (state) => ({
+            detailInfo: state.detail.detailInfo,
+        }),
+        shallowEqual,
+    )
+
+    const [showBrowser,  setShowBrowser] = useState(false)
 
     return (
         <PicturesWrapper>
             <div className="pictures">
                 <div className="left">
-                    <div className="item">
+                    <div className="item" onClick={() => setShowBrowser(true)}>
                         <img src={detailInfo?.picture_urls?.[0]} alt="" />
                         <div className="cover"></div>
                     </div>
@@ -21,7 +27,7 @@ const DetailPictures = memo((props) => {
                 <div className="right">
                     {detailInfo?.picture_urls?.slice(1, 5).map((item) => {
                         return (
-                            <div className="item" key={item}>
+                            <div className="item" key={item} onClick={() => setShowBrowser(true)}>
                                 <img src={item} alt="" />
                                 <div className="cover"></div>
                             </div>
@@ -29,6 +35,16 @@ const DetailPictures = memo((props) => {
                     })}
                 </div>
             </div>
+
+            <div className="show-btn" onClick={() => setShowBrowser(true)}>
+                显示照片
+            </div>
+            {showBrowser && (
+                <PictureBrowser
+                    pictureUrls={detailInfo.picture_urls}
+                    closeClick={() => setShowBrowser(false)}
+                />
+            )}
         </PicturesWrapper>
     )
 })

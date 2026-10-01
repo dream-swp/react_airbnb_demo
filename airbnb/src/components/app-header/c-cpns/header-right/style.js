@@ -49,6 +49,7 @@ export const RightWrapper = styled.div`
         border-radius: 10px;
         box-shadow: 0 0 2px 4px rgba(0, 0, 0, 0.18);
         color: #666;
+        z-index: 9999;
 
         .top,
         .bottom {

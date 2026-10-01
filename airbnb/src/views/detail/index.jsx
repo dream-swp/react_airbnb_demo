@@ -2,7 +2,6 @@ import { memo } from "react"
 import PropTypes from "prop-types"
 
 import DetailWapper from "./style"
-import { useSelector } from "react-redux"
 import DetailPictures from "./c-cpns/detail-pictures"
 import DetailInfo from "./c-cpns/detail-info"
 

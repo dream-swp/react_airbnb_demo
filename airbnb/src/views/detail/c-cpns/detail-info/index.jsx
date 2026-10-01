@@ -6,7 +6,7 @@ import InfoWapper from "./style"
 const DetailInfo = memo((props) => {
     return (
         <InfoWapper>
-            <span>DetailInfo</span>
+            <span></span>
         </InfoWapper>
     )
 })

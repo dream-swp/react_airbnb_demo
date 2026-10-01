@@ -18,6 +18,7 @@ const RoomSlick = memo((props) => {
 
     const controlClickHandle = useCallback(
         (event, isRight) => {
+            event.stopPropagation()
             isRight ? slickRef.current.next() : slickRef.current.prev()
 
             let index = isRight ? selectIndex + 1 : selectIndex - 1

@@ -14,7 +14,7 @@ const Entire = memo((props) => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchRoomListAction())
-        dispatch(changeHeaderConfigAction({isFixed: true}))
+        dispatch(changeHeaderConfigAction({ isFixed: true, isAlpha: false }))
     }, [dispatch])
     return (
         <EntireWrapper>

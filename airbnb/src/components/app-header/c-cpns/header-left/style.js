@@ -8,7 +8,8 @@ export const LeftWrapper = styled.div`
     /* color: red; */
 
     .icon-logo {
-        color: ${props => props.theme.color.primary};
+        /* color: ${props => props.theme.color.primary}; */
+        color: ${(props) => (props.theme.isAlpha ? "#fff" :  props => props.theme.color.primary)};
     }
     .logo {
         margin-left: 25px;

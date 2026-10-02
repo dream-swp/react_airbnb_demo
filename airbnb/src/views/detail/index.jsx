@@ -8,10 +8,9 @@ import { useDispatch } from "react-redux"
 import { changeHeaderConfigAction } from "@/store/modules/toolkit/mian"
 
 const Detail = memo((props) => {
-
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(changeHeaderConfigAction({ isFixed: false }))
+        dispatch(changeHeaderConfigAction({ isFixed: false, isAlpha: false }))
     }, [dispatch])
 
     return (

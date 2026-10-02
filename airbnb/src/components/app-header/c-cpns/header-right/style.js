@@ -10,18 +10,20 @@ export const RightWrapper = styled.div`
 
     .buttons {
         display: flex;
-    }
-
-    .button {
-        height: 18px;
-        line-height: 18px;
-        padding: 12px 15px;
-        border-radius: 22px;
-
-        &:hover {
-            background-color: #f5f5f5;
+        box-sizing: content-box;
+        color: ${(props) => (props.theme.isAlpha ? "#fff" :  props.theme.textColor.primary)};
+        .button {
+            height: 18px;
+            line-height: 18px;
+            padding: 12px 15px;
+            border-radius: 22px;
+            
+            &:hover {
+                background-color: ${(props) => (props.theme.isAlpha ? "rgba(255, 255, 255, .1)" :  "#f5f5f5")};
+            }
         }
     }
+
     .profile {
         position: relative;
         display: flex;

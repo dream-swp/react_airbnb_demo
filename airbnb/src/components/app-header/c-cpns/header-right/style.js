@@ -51,8 +51,8 @@ export const RightWrapper = styled.div`
         color: #666;
         z-index: 9999;
 
-        .top,
-        .bottom {
+        .item-top,
+        .item-bottom {
             padding: 10px 0;
 
             .item {
@@ -64,7 +64,7 @@ export const RightWrapper = styled.div`
                 }
             }
         }
-        .top {
+        .item-top {
             border-bottom: 1px solid #ddd;
         }
     }

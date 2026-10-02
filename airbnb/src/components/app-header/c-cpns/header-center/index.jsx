@@ -1,6 +1,8 @@
-import { memo, useState } from "react"
+import { memo, useCallback, useRef, useState } from "react"
 
-import { ConterWrapper } from "./style"
+import { CenterWrapper } from "./style"
+
+import { CSSTransition } from "react-transition-group"
 
 import IconSearchBar from "@/assets/svg/icon-search-bar"
 
@@ -13,28 +15,49 @@ const HeaderCenter = memo((props) => {
     const titles = SearchTitles.map((item) => item.title)
     const [tabIndex, setTabIndex] = useState(0)
 
-    function searchBarClickHandle() {
+    const searchBarRef = useRef()
+    const searchDetailRef = useRef()
+    
+    const searchBarClickHandle = useCallback(() => {
         searchBarClick?.()
-    }
+    }, [isSearch])
 
     return (
-        <ConterWrapper>
-            {!isSearch ? (
-                <div className="search-bar" onClick={() => searchBarClickHandle()}>
+        <CenterWrapper>
+            <CSSTransition
+                in={!isSearch}
+                classNames="bar"
+                timeout={250}
+                unmountOnExit={true}
+                nodeRef={searchBarRef}
+            >
+                <div
+                    className="search-bar"
+                    onClick={() => searchBarClickHandle()}
+                    ref={searchBarRef}
+                >
                     <div className="text">搜索房源和体验</div>
                     <span className="icon">
                         <IconSearchBar />
                     </span>
                 </div>
-            ) : (
-                <div className="search-detail">
+            </CSSTransition>
+
+            <CSSTransition
+                in={isSearch}
+                classNames="detail"
+                timeout={250}
+                unmountOnExit={true}
+                nodeRef={searchDetailRef}
+            >
+                <div className="search-detail" ref={searchDetailRef}>
                     <SearchTabs titles={titles} tabClick={setTabIndex} />
                     <div className="infos">
                         <SearchSection searchInfos={SearchTitles[tabIndex].searchInfos} />
                     </div>
                 </div>
-            )}
-        </ConterWrapper>
+            </CSSTransition>
+        </CenterWrapper>
     )
 })
 export default HeaderCenter

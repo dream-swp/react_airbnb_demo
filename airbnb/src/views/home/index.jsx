@@ -11,10 +11,9 @@ import HomeSectionV1 from "./c-cpns/home-section-v1"
 import HomeSectionV2 from "./c-cpns/home-section-v2"
 import HomeLongfor from "./c-cpns/home-longfor"
 import HomeSectionV3 from "./c-cpns/home-section-v3"
+import { changeHeaderConfigAction } from "@/store/modules/toolkit/mian"
 
 const Home = memo((props) => {
-    const dispatch = useDispatch()
-
     const { goodPriceInfo, highScoreInfo, discountInfo, recommendInfo, longforInfo, plusInfo } =
         useSelector(
             (state) => ({
@@ -28,8 +27,10 @@ const Home = memo((props) => {
             shallowEqual,
         )
 
+    const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchHomeDataAction())
+        dispatch(changeHeaderConfigAction({ isFixed: true }))
     }, [dispatch])
 
     return (

@@ -1,12 +1,11 @@
 import styled from "styled-components"
 
 export const FilterWapper = styled.div`
-    /* position: fixed;
-    z-index: 99; */
+    position: fixed;
+    z-index: 88;
+    top: 80px;
     left: 0;
     right: 0;
-    top: 80px;
-
     display: flex;
     align-items: center;
     height: 48px;
